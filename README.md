@@ -16,6 +16,7 @@ This is a program that allows the user to add new animals of 3 different species
 5. Exits the program.
 
 ## Design Decisions
+* A seperate function called UserInput was made so that the user input data could be assigned to new animals.
 
 ## Challenges 
 
