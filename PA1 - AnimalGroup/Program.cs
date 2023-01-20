@@ -48,7 +48,7 @@ namespace PA1_AnimalGroup
         {
             
             Console.WriteLine("Name: " + Name);
-            Console.WriteLine("Species: Cat");
+            Console.WriteLine("Animal: Cat");
             Console.WriteLine("Age: " + Age);
             Console.WriteLine("Noise: " + Noise);
             Console.WriteLine("Weight: " + Weight + " lb");
@@ -80,7 +80,7 @@ namespace PA1_AnimalGroup
         {
 
             Console.WriteLine("Name: " + Name);
-            Console.WriteLine("Species: Cassowary");
+            Console.WriteLine("Animal: Cassowary");
             Console.WriteLine("Age: " + Age);
             Console.WriteLine("Noise: " + Noise);
             Console.WriteLine("Weight: " + Weight + " lb");
@@ -111,7 +111,7 @@ namespace PA1_AnimalGroup
         {
 
             Console.WriteLine("Name: " + Name);
-            Console.WriteLine("Species: Fox");
+            Console.WriteLine("Animal: Fox");
             Console.WriteLine("Age: " + Age);
             Console.WriteLine("Noise: " + Noise);
             Console.WriteLine("Weight: " + Weight + " lb");
@@ -137,7 +137,7 @@ namespace PA1_AnimalGroup
         }
     }
     //World Object
-    class AnimalMain
+    class World
     {
         static void Main(string[] args)
         {
@@ -201,7 +201,7 @@ namespace PA1_AnimalGroup
                     Console.Write("Enter the Animal's Name: ");
                     nameSearch = Console.ReadLine();
 
-                    Animal animalBio = Roster.Find(n => n.Name == nameSearch);
+                    Animal animalBio = Roster.Find(x => x.Name == nameSearch);
 
                     Console.WriteLine();
                     if (nameSearch != null)
@@ -216,7 +216,7 @@ namespace PA1_AnimalGroup
                     Console.Write("Enter the Animal's Name: ");
                     nameSearch = Console.ReadLine();
 
-                    Animal animalSound = Roster.Find(n => n.Name == nameSearch);
+                    Animal animalSound = Roster.Find(x => x.Name == nameSearch);
 
                     Console.WriteLine();
                     if (nameSearch != null)
@@ -231,7 +231,7 @@ namespace PA1_AnimalGroup
                     Console.Write("Enter the Animal's Name: ");
                     nameSearch = Console.ReadLine();
 
-                    Animal animalAge = Roster.Find(n => n.Name == nameSearch);
+                    Animal animalAge = Roster.Find(x => x.Name == nameSearch);
 
                     Console.WriteLine();
                     if (nameSearch != null)
