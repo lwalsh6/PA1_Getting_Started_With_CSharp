@@ -37,8 +37,8 @@ namespace PA1_AnimalGroup
         }
         //Function for printing all of the animal information
         public abstract void PrintInfo();
-        public abstract string MakeNoise(string noise);
-        public abstract int AgeUp(string name, int age);
+        public abstract void MakeNoise();
+        public abstract void AgeUp();
         public abstract void UserInput(string animalName, int animalAge, int animalWeight);
 
     }
@@ -46,23 +46,24 @@ namespace PA1_AnimalGroup
     {
         public override void PrintInfo()
         {
-            Console.WriteLine("Animal: Cat");
-                Console.WriteLine("Name: " + Name);
-                Console.WriteLine("Age: " + Age);
-                Console.WriteLine("Noise: " + Noise);
-                Console.WriteLine("Weight: " + Weight + " lb");
+            
+            Console.WriteLine("Name: " + Name);
+            Console.WriteLine("Species: Cat");
+            Console.WriteLine("Age: " + Age);
+            Console.WriteLine("Noise: " + Noise);
+            Console.WriteLine("Weight: " + Weight + " lb");
         }
        
-        public override string MakeNoise(string noise)
+        public override void MakeNoise()
         {
-            Console.WriteLine("Noise: " + Noise);
-            return noise;
+            Console.WriteLine(Name + " goes " + Noise);
         }
-        public override int AgeUp(string name, int age)
+        public override void AgeUp()
         {
-            Console.WriteLine("Aged by 1 year");
-            age++;
-            return age;
+            Console.WriteLine("Happy Birthday " + Name);
+            Console.WriteLine();
+            Age++;
+            Console.WriteLine(Name + " is now " + Age + " year(s) old!");
         }
         public override void UserInput(string animalName, int animalAge, int animalWeight)
         {
@@ -73,31 +74,89 @@ namespace PA1_AnimalGroup
         }
     }
 
-    class Cassowary
+    class Cassowary : Animal
     {
+        public override void PrintInfo()
+        {
 
+            Console.WriteLine("Name: " + Name);
+            Console.WriteLine("Species: Cassowary");
+            Console.WriteLine("Age: " + Age);
+            Console.WriteLine("Noise: " + Noise);
+            Console.WriteLine("Weight: " + Weight + " lb");
+        }
+
+        public override void MakeNoise()
+        {
+            Console.WriteLine(Name + " goes " + Noise);
+        }
+        public override void AgeUp()
+        {
+            Console.WriteLine("Happy Birthday " + Name);
+            Console.WriteLine();
+            Age++;
+            Console.WriteLine(Name + " is now " + Age + " year(s) old!");
+        }
+        public override void UserInput(string animalName, int animalAge, int animalWeight)
+        {
+            Name = animalName;
+            Age = animalAge;
+            Noise = "Cassowary_Sound.wav";
+            Weight = animalWeight;
+        }
     }
-    class Fox
+    class Fox : Animal
     {
+        public override void PrintInfo()
+        {
 
+            Console.WriteLine("Name: " + Name);
+            Console.WriteLine("Species: Fox");
+            Console.WriteLine("Age: " + Age);
+            Console.WriteLine("Noise: " + Noise);
+            Console.WriteLine("Weight: " + Weight + " lb");
+        }
+
+        public override void MakeNoise()
+        {
+            Console.WriteLine(Name + " goes " + Noise);
+        }
+        public override void AgeUp()
+        {
+            Console.WriteLine("Happy Birthday " + Name);
+            Console.WriteLine();
+            Age++;
+            Console.WriteLine(Name + " is now " + Age + " year(s) old!");
+        }
+        public override void UserInput(string animalName, int animalAge, int animalWeight)
+        {
+            Name = animalName;
+            Age = animalAge;
+            Noise = "Hehehehehehe";
+            Weight = animalWeight;
+        }
     }
+    //World Object
     class AnimalMain
     {
         static void Main(string[] args)
         {
             string userIn;
-            Animal newAnimal;
             string nameIn;
             int ageIn;
             int weightIn;
+
             Console.WriteLine("1. Add a New Animal");
-            Console.WriteLine("2. Make a Year Pass");
+            Console.WriteLine("2. Find an Animal's Bio");
             Console.WriteLine("3. Print the Animal's Sound");
-            Console.WriteLine("4. Print out a List of the Animals");
+            Console.WriteLine("4. Leap 1 year into the future");
             Console.WriteLine("5. Exit");
             Console.Write("Make Your Selection Now: ");
             userIn = Console.ReadLine();
             Console.ReadKey();
+
+            Animal newAnimal = null;
+            List<Animal> Roster = new List<Animal>();
 
             while (userIn != "5")
             {
@@ -106,27 +165,85 @@ namespace PA1_AnimalGroup
                     string animalChoice;
                     Console.WriteLine("What animal do you want to add?");
                     Console.WriteLine("1. Cat, 2. Cassowary, 3. Fox");
+                    Console.Write("Make Your Selection Now: ");
+                    animalChoice = Console.ReadLine();
+
+                    
                     if (animalChoice == "1") { newAnimal = new Cat(); }
-                    //else if (animalChoice == "2") { newAnimal = new Cassowary(); }
-                    //else if (animalChoice == "3") { newAnimal = new Fox(); }
+                    else if (animalChoice == "2") { newAnimal = new Cassowary(); }
+                    else if (animalChoice == "3") { newAnimal = new Fox(); }
+                    else
+                    {
+                        Console.WriteLine("ERROR: Not an Option");
+                    }
+
+                    if (animalChoice == "1" || animalChoice == "2" || animalChoice == "3")
+                    {
+                        Console.Write("Enter the Animal's Name: ");
+                        nameIn = Console.ReadLine();
+                        Console.Write("Enter the Animal's Age: ");
+                        ageIn = Convert.ToInt32(Console.ReadLine());
+                        Console.Write("Enter the Animal's Weight: ");
+                        weightIn = Convert.ToInt32(Console.ReadLine());
+
+                        Console.WriteLine();
+                        Console.WriteLine("Adding " + nameIn + " to the Roster");
+                        newAnimal.UserInput(nameIn, ageIn, weightIn);
+                        Roster.Add(newAnimal);
+                        Console.WriteLine(nameIn + " is now in the Roster!");
+                        Console.WriteLine();
+                    }
+
                 }
                 if (userIn == "2")
                 {
+                    string nameSearch;
+                    Console.Write("Enter the Animal's Name: ");
+                    nameSearch = Console.ReadLine();
 
+                    Animal animalBio = Roster.Find(n => n.Name == nameSearch);
+
+                    Console.WriteLine();
+                    if (nameSearch != null)
+                    {
+                        animalBio.PrintInfo();
+                    }
+                    Console.WriteLine();
                 }
                 if (userIn == "3")
                 {
+                    string nameSearch;
+                    Console.Write("Enter the Animal's Name: ");
+                    nameSearch = Console.ReadLine();
 
+                    Animal animalSound = Roster.Find(n => n.Name == nameSearch);
+
+                    Console.WriteLine();
+                    if (nameSearch != null)
+                    {
+                        animalSound.MakeNoise();
+                    }
+                    Console.WriteLine();
                 }
                 if (userIn == "4")
                 {
+                    string nameSearch;
+                    Console.Write("Enter the Animal's Name: ");
+                    nameSearch = Console.ReadLine();
 
+                    Animal animalAge = Roster.Find(n => n.Name == nameSearch);
+
+                    Console.WriteLine();
+                    if (nameSearch != null)
+                    {
+                        animalAge.AgeUp();
+                    }
+                    Console.WriteLine();
                 }
-
+                Console.Write("Make Another Selection: ");
+                userIn = Console.ReadLine();
+                Console.ReadKey();
             }
-
-
-
         }
     }
 }
