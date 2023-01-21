@@ -56,6 +56,7 @@ namespace PA1_AnimalGroup
     class Cat : Animal
     {
         //Overrides functions in abstract class
+        //Prints out the cat's information
         public override void PrintInfo()
         {
             //Prints out all of the animal attributes
@@ -65,11 +66,12 @@ namespace PA1_AnimalGroup
             Console.WriteLine("Noise: " + Noise);
             Console.WriteLine("Weight: " + Weight + " lb");
         }
-       
+        //prints a message displaying the animal's noise
         public override void MakeNoise()
         {
             Console.WriteLine(Name + " goes " + Noise);
         }
+        //Increases age by 1 year
         public override void AgeUp()
         {
             Console.WriteLine("Happy Birthday " + Name);
@@ -77,6 +79,7 @@ namespace PA1_AnimalGroup
             Age++;
             Console.WriteLine(Name + " is now " + Age + " year(s) old!");
         }
+        //Noise is automatically assigned to any entries in the cat class
         public override void UserInput(string animalName, int animalAge, int animalWeight)
         {
             Name = animalName;
@@ -90,6 +93,7 @@ namespace PA1_AnimalGroup
     class Cassowary : Animal
     {
         //Functions about the same as the cat one with some slight changes
+        //Prints out the cassowary's information
         public override void PrintInfo()
         {
 
@@ -99,11 +103,12 @@ namespace PA1_AnimalGroup
             Console.WriteLine("Noise: " + Noise);
             Console.WriteLine("Weight: " + Weight + " lb");
         }
-
+        //prints a message displaying the animal's noise
         public override void MakeNoise()
         {
             Console.WriteLine(Name + " goes " + Noise);
         }
+        //Increases the animal's age by 1 year
         public override void AgeUp()
         {
             Console.WriteLine("Happy Birthday " + Name);
@@ -111,10 +116,12 @@ namespace PA1_AnimalGroup
             Age++;
             Console.WriteLine(Name + " is now " + Age + " year(s) old!");
         }
+        //assigns the information to the new animal
         public override void UserInput(string animalName, int animalAge, int animalWeight)
         {
             Name = animalName;
             Age = animalAge;
+            //The animal's sound is default for all of them
             Noise = "Cassowary_Sound.wav";
             Weight = animalWeight;
         }
@@ -123,6 +130,7 @@ namespace PA1_AnimalGroup
     class Fox : Animal
     {
         //Same as other two classes, aside from minor differences
+        //Prints out the fox's information
         public override void PrintInfo()
         {
 
@@ -132,11 +140,12 @@ namespace PA1_AnimalGroup
             Console.WriteLine("Noise: " + Noise);
             Console.WriteLine("Weight: " + Weight + " lb");
         }
-
+        //Prints out the animal's noise
         public override void MakeNoise()
         {
             Console.WriteLine(Name + " goes " + Noise);
         }
+        //Increases age by 1 year
         public override void AgeUp()
         {
             Console.WriteLine("Happy Birthday " + Name);
@@ -144,6 +153,7 @@ namespace PA1_AnimalGroup
             Age++;
             Console.WriteLine(Name + " is now " + Age + " year(s) old!");
         }
+        //Used to add new information to the animal
         public override void UserInput(string animalName, int animalAge, int animalWeight)
         {
             Name = animalName;
