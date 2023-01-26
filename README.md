@@ -5,19 +5,19 @@ Date: 1/20/2023
 This is a program that allows the user to add new animals of 3 different specieses to a list and search for them. 
 
 ## Important files
-* MainWindow.xaml -> The UI Portion of the code
-* MainWindow.xaml.cs -> The programmed functions
+* program.cs -> The program itself
 
 ## Program usage.
-* Upon starting the program you have 3 different options
-1. A Color Pallette
-2. A Clear Button
-3. A slider to adjust the size of the pen
+* Upon starting the program you will be prompted with a menu with 5 different options
+1. Adds an animal to the list, you can only choose between 3 species, Cats, Cassowaries and Foxes.
+2. Looks up an animal in the list
+3. Repeats the sound that animal makes
+4. Increases a particular animal's age by 1 year
+5. Exits the program.
 
 ## Design Decisions
-* Has a color pallette with 17 different colors
-* A Slider is used to adjust the size of the pen
+* A seperate function called UserInput was made so that the user input data could be assigned to new animals.
 
 ## Challenges 
-* Figuring out how to program everything was a bit confusing
-* Too easy to overthink how the program needs to be done
+
+* Working in C# Wasn't too easy since we just started leaning it.
